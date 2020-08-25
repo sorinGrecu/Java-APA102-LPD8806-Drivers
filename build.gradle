@@ -1,0 +1,69 @@
+buildscript {
+    
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+        lombokVersion = '1.18.2'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.projectlombok:lombok:1.18.2")
+    }
+
+
+    configurations {
+        /* Excluded dependencies (not required by the application) */
+        compile.exclude module: 'tomcat-embed-el'
+        compile.exclude module: 'spring-boot-starter-tomcat'
+    }
+
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'sorin-ledstrip'
+    version = '0.1.0'
+}
+
+group = 'com.sorin.grecu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/groups/public"}
+}
+
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencies{
+    compile group: 'com.pi4j', name: 'pi4j-core', version: '1.2'
+
+    compile group: 'com.pi4j', name: 'pi4j-service', version: '1.1'
+    compile group: 'org.bidib.com.pi4j', name: 'pi4j-gpio-extension', version: '1.2.M1'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: springBootVersion
+    compile group: 'com.pi4j', name: 'pi4j-device', version: '1.1'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+    compile group: 'org.jogamp.joal', name: 'joal-main', version: '2.0.2'
+    compile group: 'org.jogamp.gluegen', name: 'gluegen-rt-main', version: '2.0.2'
+    compile group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: '1.2.1'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
+
+}
