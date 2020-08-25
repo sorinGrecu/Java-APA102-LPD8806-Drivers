@@ -6,7 +6,8 @@ It has a lot of junk laying around and the code quality is far from decent, but 
 
 
 Basically it is a Spring Boot application that can run on a Raspberry Pi.
-My current setup is RPI and a APA102 led-strip with 144 leds. the jar runs at startup and from there on I simply 
+My current setup is RPI and a APA102 led-strip with 144 leds. the jar runs at startup and from there on I simply hit the endpoints whenever I need.
+I also set up Fauxmo on the RPI to be able to control it through Alexa by emulating a Belkin WeMo, hitting the endpoints for on and off.
 
 This is configurable. For example one of my led-strips broke, I had to cut it in half. I simply reduced the number of leds in application.properties to 72 and it worked.
 
