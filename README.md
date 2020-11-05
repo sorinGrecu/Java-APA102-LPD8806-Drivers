@@ -2,7 +2,7 @@
 
 A couple of years back I wanted to control some APA102 and LPD8806 led-strips from java, but I couldn't find drivers for it so I created them myself by following the technical papers.
 I was planning on making them public, but I forgot. Now, looking through what repositories I had around my accounts, I discovered this and thought it might help someone.
-It has a lot of junk laying around and the code quality is far from decent, but I've done this on the fly  for fun a couple of years back.
+It has a lot of junk laying around and the code quality is far from decent, but I've done this on the fly  for fun a couple of years back, so apologies for the code quality.
 
 
 Basically it is a Spring Boot application that can run on a Raspberry Pi.
